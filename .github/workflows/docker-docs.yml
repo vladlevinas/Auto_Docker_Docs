@@ -35,8 +35,9 @@ jobs:
           set -euo pipefail
           mkdir -p .state articles
 
-          # 1) Получить список файлов (кэшируется)
+          # 1) Получаем список markdown-файлов (один раз и кэшируем)
           if [ ! -f .state/files.json ]; then
+            echo "Fetching list of Docker CLI docs..."
             curl -sSL \
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${GITHUB_TOKEN}" \
@@ -45,16 +46,16 @@ jobs:
               > .state/files.json
           fi
 
-          # 2) Отсортированный список
+          # 2) Упорядочим по имени (стабильно)
           if [ ! -f .state/ordered.json ]; then
             jq 'sort_by(.name)' .state/files.json > .state/ordered.json
           fi
 
-          # 3) Выбор следующего файла
+          # 3) Определим, какой файл брать сейчас
           idx=$( [ -f .state/idx ] && cat .state/idx || echo 0 )
           total=$(jq 'length' .state/ordered.json)
           if [ "$total" -le 0 ]; then
-            echo "No files to process"
+            echo "No files found."
             exit 1
           fi
           sel=$(( idx % total ))
@@ -63,6 +64,7 @@ jobs:
           dl=$(jq -r ".[$sel].download_url" .state/ordered.json)
           src_path=$(jq -r ".[$sel].path" .state/ordered.json)
 
+          echo "Selected file: $name ($sel / $total)"
           tmpfile="$(mktemp)"
           curl -sSL "$dl" -o "$tmpfile"
 
@@ -81,11 +83,11 @@ jobs:
             echo
           } > "$outpath"
 
-          # убрать дублирующий первый заголовок
+          # удаляем первый заголовок "# ..." — часто дублирует имя
           awk 'NR==1 && /^# / {next} {print}' "$tmpfile" >> "$outpath"
           rm -f "$tmpfile"
 
-          # 4) Гарантируем наличие README с маркерами
+          # 4) README.md (создать, если нет)
           if [ ! -f README.md ]; then
             cat > README.md <<'EOF'
 # Docker CLI Notes
@@ -102,7 +104,7 @@ jobs:
 EOF
           fi
 
-          # 5) Построить новую секцию индекса
+          # 5) Перестроим автоиндекс
           mapfile -t files < <(git ls-files 'articles/*.md' 2>/dev/null | sort -r)
           index_tmp="$(mktemp)"
           {
@@ -121,7 +123,7 @@ EOF
             echo "<!-- AUTO-INDEX:END -->"
           } > "$index_tmp"
 
-          # 6) Заменить секцию между маркерами через awk (без perl)
+          # заменить секцию между маркерами
           awk -v RS= -v ORS= -v newsec="$(cat "$index_tmp")" '
             BEGIN{ has=0 }
             {
@@ -133,7 +135,6 @@ EOF
             }
             END{
               if (has==0) {
-                # если почему-то нет маркеров — просто добавить в конец
                 printf "\n%s\n", newsec
               }
             }
@@ -141,7 +142,7 @@ EOF
           mv README.md.new README.md
           rm -f "$index_tmp"
 
-          # 7) Коммит от вашего имени
+          # 6) Коммит от вашего имени
           git config user.name  "${GIT_COMMITTER_NAME}"
           git config user.email "${GIT_COMMITTER_EMAIL}"
 
