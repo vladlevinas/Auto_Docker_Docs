@@ -1,4 +1,4 @@
-name: Docker CLI importer (3x daily, email with article)
+name: New Docker CLI importer (3x daily, email with article)
 
 permissions:
   contents: write
