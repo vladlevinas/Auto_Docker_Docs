@@ -1,0 +1,141 @@
+name: Docker CLI importer (3x daily, email with article)
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # Europe/Vilnius: 09:00, 15:00, 21:00 (UTC=07:00,13:00,19:00)
+    - cron: "0 7,13,19 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GIT_AUTHOR_NAME:  ${{ secrets.COMMIT_AUTHOR_NAME }}
+      GIT_AUTHOR_EMAIL: ${{ secrets.COMMIT_AUTHOR_EMAIL }}
+      GIT_COMMITTER_NAME:  ${{ secrets.COMMIT_AUTHOR_NAME }}
+      GIT_COMMITTER_EMAIL: ${{ secrets.COMMIT_AUTHOR_EMAIL }}
+    steps:
+      - name: Checkout (with your PAT)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Fetch & publish next Docker CLI article
+        id: publish
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          export LC_ALL=C
+          mkdir -p .state articles
+
+          # 1) Получаем список markdown-файлов (кэшируем)
+          if [ ! -f .state/files.json ]; then
+            echo "Fetching list of Docker CLI docs..."
+            curl -sSL \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              https://api.github.com/repos/docker/cli/contents/docs/reference/commandline \
+              | jq '[ .[] | select(.type=="file" and (.name|endswith(".md"))) | {name: .name, download_url: .download_url, path: .path}]' \
+              > .state/files.json
+          fi
+
+          # 2) Сортируем и выбираем следующий файл
+          if [ ! -f .state/ordered.json ]; then
+            jq 'sort_by(.name)' .state/files.json > .state/ordered.json
+          fi
+          idx=$( [ -f .state/idx ] && cat .state/idx || echo 0 )
+          total=$(jq 'length' .state/ordered.json)
+          [ "$total" -gt 0 ] || { echo "No files found."; exit 1; }
+          sel=$(( idx % total ))
+
+          name=$(jq -r ".[$sel].name" .state/ordered.json)
+          dl=$(jq -r ".[$sel].download_url" .state/ordered.json)
+          src_path=$(jq -r ".[$sel].path" .state/ordered.json)
+
+          echo "Selected file: $name ($sel / $total)"
+          tmpfile="$(mktemp)"
+          curl -sSL "$dl" -o "$tmpfile"
+
+          title="${name%.md}"
+          today="$(date +%F)"
+          safe_title="$(printf '%s' "$title" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
+          outpath="articles/${today}-${safe_title}.md"
+
+          {
+            echo "---"
+            echo "source_repo: docker/cli"
+            echo "source_path: ${src_path}"
+            echo "original_url: https://github.com/docker/cli/blob/master/${src_path}"
+            echo "published_at: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "---"
+            echo
+          } > "$outpath"
+
+          # Удаляем дублирующий первый заголовок
+          awk 'NR==1 && /^# / {next} {print}' "$tmpfile" >> "$outpath"
+          rm -f "$tmpfile"
+
+          # Сохраняем текст статьи для письма (с лимитом)
+          head -c 40000 "$outpath" > .state/email_body.txt
+
+          # Коммит от вашего имени
+          git config user.name  "${GIT_COMMITTER_NAME}"
+          git config user.email "${GIT_COMMITTER_EMAIL}"
+          git add "$outpath" .state
+          echo $((idx+1)) > .state/idx
+          git add .state/idx
+
+          GIT_AUTHOR_NAME="${GIT_AUTHOR_NAME}" \
+          GIT_AUTHOR_EMAIL="${GIT_AUTHOR_EMAIL}" \
+          GIT_COMMITTER_NAME="${GIT_COMMITTER_NAME}" \
+          GIT_COMMITTER_EMAIL="${GIT_COMMITTER_EMAIL}" \
+          git commit -m "Add: ${title} (${today})" || echo "Nothing to commit"
+
+          # Экспортируем заголовок для следующих шагов
+          echo "title=${title}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare email HTML with article text
+        id: compose
+        run: |
+          set -euo pipefail
+          # Экранируем Markdown в HTML (<,>,&) и заворачиваем в <pre>
+          esc="$(sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' .state/email_body.txt)"
+          {
+            echo "email_body_html<<'EOF'"
+            echo "<h2>Опубликована новая статья из Docker CLI docs</h2>"
+            echo "<p><b>${{ steps.publish.outputs.title }}</b></p>"
+            echo "<p>Репозиторий: <a href=\"https://github.com/${{ github.repository }}\">${{ github.repository }}</a></p>"
+            echo "<p>Файл сохранён в папке <code>articles/</code>.</p>"
+            echo "<hr>"
+            echo "<pre style=\"font-family: monospace; white-space: pre-wrap; background:#f8f8f8; padding:1em; border-radius:8px;\">"
+            printf "%s\n" "$esc"
+            echo "</pre>"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Push to main (counts in activity graph)
+        run: git push origin HEAD:main
+
+      - name: Send email notification (with article)
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Docker CLI doc: ${{ steps.publish.outputs.title }}"
+          to: ${{ secrets.TO_EMAIL }}
+          from: ${{ secrets.FROM_EMAIL }}
+          content_type: text/html
+          body: ${{ steps.compose.outputs.email_body_html }}
+          # При желании можно приложить сам .md файлом:
+          # attachments: articles/${{ steps.publish.outputs.title }}.md
