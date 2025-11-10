@@ -33,6 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          export LC_ALL=C
           mkdir -p .state articles
 
           # 1) Получаем список markdown-файлов (один раз и кэшируем)
@@ -70,7 +71,8 @@ jobs:
 
           title="${name%.md}"
           today="$(date +%F)"
-          safe_title="$(echo "$title" | tr ' ' '_' | tr -cd '[:alnum:]_-.')"
+          # безопасная нормализация имени файла: подчёркивания вместо пробелов + вырезаем всё кроме a-zA-Z0-9, '_', '.', '-'
+          safe_title="$(printf '%s' "$title" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
           outpath="articles/${today}-${safe_title}.md"
 
           {
