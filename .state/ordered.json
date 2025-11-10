@@ -1,0 +1,907 @@
+[
+  {
+    "name": "attach.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/attach.md",
+    "path": "docs/reference/commandline/attach.md"
+  },
+  {
+    "name": "bake.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/bake.md",
+    "path": "docs/reference/commandline/bake.md"
+  },
+  {
+    "name": "build.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/build.md",
+    "path": "docs/reference/commandline/build.md"
+  },
+  {
+    "name": "builder.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/builder.md",
+    "path": "docs/reference/commandline/builder.md"
+  },
+  {
+    "name": "builder_build.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/builder_build.md",
+    "path": "docs/reference/commandline/builder_build.md"
+  },
+  {
+    "name": "builder_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/builder_prune.md",
+    "path": "docs/reference/commandline/builder_prune.md"
+  },
+  {
+    "name": "checkpoint.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/checkpoint.md",
+    "path": "docs/reference/commandline/checkpoint.md"
+  },
+  {
+    "name": "checkpoint_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/checkpoint_create.md",
+    "path": "docs/reference/commandline/checkpoint_create.md"
+  },
+  {
+    "name": "checkpoint_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/checkpoint_ls.md",
+    "path": "docs/reference/commandline/checkpoint_ls.md"
+  },
+  {
+    "name": "checkpoint_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/checkpoint_rm.md",
+    "path": "docs/reference/commandline/checkpoint_rm.md"
+  },
+  {
+    "name": "commit.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/commit.md",
+    "path": "docs/reference/commandline/commit.md"
+  },
+  {
+    "name": "config.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/config.md",
+    "path": "docs/reference/commandline/config.md"
+  },
+  {
+    "name": "config_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/config_create.md",
+    "path": "docs/reference/commandline/config_create.md"
+  },
+  {
+    "name": "config_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/config_inspect.md",
+    "path": "docs/reference/commandline/config_inspect.md"
+  },
+  {
+    "name": "config_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/config_ls.md",
+    "path": "docs/reference/commandline/config_ls.md"
+  },
+  {
+    "name": "config_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/config_rm.md",
+    "path": "docs/reference/commandline/config_rm.md"
+  },
+  {
+    "name": "container.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container.md",
+    "path": "docs/reference/commandline/container.md"
+  },
+  {
+    "name": "container_attach.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_attach.md",
+    "path": "docs/reference/commandline/container_attach.md"
+  },
+  {
+    "name": "container_commit.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_commit.md",
+    "path": "docs/reference/commandline/container_commit.md"
+  },
+  {
+    "name": "container_cp.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_cp.md",
+    "path": "docs/reference/commandline/container_cp.md"
+  },
+  {
+    "name": "container_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_create.md",
+    "path": "docs/reference/commandline/container_create.md"
+  },
+  {
+    "name": "container_diff.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_diff.md",
+    "path": "docs/reference/commandline/container_diff.md"
+  },
+  {
+    "name": "container_exec.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_exec.md",
+    "path": "docs/reference/commandline/container_exec.md"
+  },
+  {
+    "name": "container_export.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_export.md",
+    "path": "docs/reference/commandline/container_export.md"
+  },
+  {
+    "name": "container_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_inspect.md",
+    "path": "docs/reference/commandline/container_inspect.md"
+  },
+  {
+    "name": "container_kill.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_kill.md",
+    "path": "docs/reference/commandline/container_kill.md"
+  },
+  {
+    "name": "container_logs.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_logs.md",
+    "path": "docs/reference/commandline/container_logs.md"
+  },
+  {
+    "name": "container_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_ls.md",
+    "path": "docs/reference/commandline/container_ls.md"
+  },
+  {
+    "name": "container_pause.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_pause.md",
+    "path": "docs/reference/commandline/container_pause.md"
+  },
+  {
+    "name": "container_port.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_port.md",
+    "path": "docs/reference/commandline/container_port.md"
+  },
+  {
+    "name": "container_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_prune.md",
+    "path": "docs/reference/commandline/container_prune.md"
+  },
+  {
+    "name": "container_rename.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_rename.md",
+    "path": "docs/reference/commandline/container_rename.md"
+  },
+  {
+    "name": "container_restart.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_restart.md",
+    "path": "docs/reference/commandline/container_restart.md"
+  },
+  {
+    "name": "container_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_rm.md",
+    "path": "docs/reference/commandline/container_rm.md"
+  },
+  {
+    "name": "container_run.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_run.md",
+    "path": "docs/reference/commandline/container_run.md"
+  },
+  {
+    "name": "container_start.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_start.md",
+    "path": "docs/reference/commandline/container_start.md"
+  },
+  {
+    "name": "container_stats.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_stats.md",
+    "path": "docs/reference/commandline/container_stats.md"
+  },
+  {
+    "name": "container_stop.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_stop.md",
+    "path": "docs/reference/commandline/container_stop.md"
+  },
+  {
+    "name": "container_top.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_top.md",
+    "path": "docs/reference/commandline/container_top.md"
+  },
+  {
+    "name": "container_unpause.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_unpause.md",
+    "path": "docs/reference/commandline/container_unpause.md"
+  },
+  {
+    "name": "container_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_update.md",
+    "path": "docs/reference/commandline/container_update.md"
+  },
+  {
+    "name": "container_wait.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/container_wait.md",
+    "path": "docs/reference/commandline/container_wait.md"
+  },
+  {
+    "name": "context.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context.md",
+    "path": "docs/reference/commandline/context.md"
+  },
+  {
+    "name": "context_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_create.md",
+    "path": "docs/reference/commandline/context_create.md"
+  },
+  {
+    "name": "context_export.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_export.md",
+    "path": "docs/reference/commandline/context_export.md"
+  },
+  {
+    "name": "context_import.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_import.md",
+    "path": "docs/reference/commandline/context_import.md"
+  },
+  {
+    "name": "context_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_inspect.md",
+    "path": "docs/reference/commandline/context_inspect.md"
+  },
+  {
+    "name": "context_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_ls.md",
+    "path": "docs/reference/commandline/context_ls.md"
+  },
+  {
+    "name": "context_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_rm.md",
+    "path": "docs/reference/commandline/context_rm.md"
+  },
+  {
+    "name": "context_show.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_show.md",
+    "path": "docs/reference/commandline/context_show.md"
+  },
+  {
+    "name": "context_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_update.md",
+    "path": "docs/reference/commandline/context_update.md"
+  },
+  {
+    "name": "context_use.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/context_use.md",
+    "path": "docs/reference/commandline/context_use.md"
+  },
+  {
+    "name": "cp.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/cp.md",
+    "path": "docs/reference/commandline/cp.md"
+  },
+  {
+    "name": "create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/create.md",
+    "path": "docs/reference/commandline/create.md"
+  },
+  {
+    "name": "diff.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/diff.md",
+    "path": "docs/reference/commandline/diff.md"
+  },
+  {
+    "name": "docker.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/docker.md",
+    "path": "docs/reference/commandline/docker.md"
+  },
+  {
+    "name": "events.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/events.md",
+    "path": "docs/reference/commandline/events.md"
+  },
+  {
+    "name": "exec.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/exec.md",
+    "path": "docs/reference/commandline/exec.md"
+  },
+  {
+    "name": "export.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/export.md",
+    "path": "docs/reference/commandline/export.md"
+  },
+  {
+    "name": "history.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/history.md",
+    "path": "docs/reference/commandline/history.md"
+  },
+  {
+    "name": "image.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image.md",
+    "path": "docs/reference/commandline/image.md"
+  },
+  {
+    "name": "image_build.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_build.md",
+    "path": "docs/reference/commandline/image_build.md"
+  },
+  {
+    "name": "image_history.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_history.md",
+    "path": "docs/reference/commandline/image_history.md"
+  },
+  {
+    "name": "image_import.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_import.md",
+    "path": "docs/reference/commandline/image_import.md"
+  },
+  {
+    "name": "image_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_inspect.md",
+    "path": "docs/reference/commandline/image_inspect.md"
+  },
+  {
+    "name": "image_load.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_load.md",
+    "path": "docs/reference/commandline/image_load.md"
+  },
+  {
+    "name": "image_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_ls.md",
+    "path": "docs/reference/commandline/image_ls.md"
+  },
+  {
+    "name": "image_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_prune.md",
+    "path": "docs/reference/commandline/image_prune.md"
+  },
+  {
+    "name": "image_pull.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_pull.md",
+    "path": "docs/reference/commandline/image_pull.md"
+  },
+  {
+    "name": "image_push.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_push.md",
+    "path": "docs/reference/commandline/image_push.md"
+  },
+  {
+    "name": "image_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_rm.md",
+    "path": "docs/reference/commandline/image_rm.md"
+  },
+  {
+    "name": "image_save.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_save.md",
+    "path": "docs/reference/commandline/image_save.md"
+  },
+  {
+    "name": "image_tag.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/image_tag.md",
+    "path": "docs/reference/commandline/image_tag.md"
+  },
+  {
+    "name": "images.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/images.md",
+    "path": "docs/reference/commandline/images.md"
+  },
+  {
+    "name": "import.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/import.md",
+    "path": "docs/reference/commandline/import.md"
+  },
+  {
+    "name": "index.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/index.md",
+    "path": "docs/reference/commandline/index.md"
+  },
+  {
+    "name": "info.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/info.md",
+    "path": "docs/reference/commandline/info.md"
+  },
+  {
+    "name": "inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/inspect.md",
+    "path": "docs/reference/commandline/inspect.md"
+  },
+  {
+    "name": "kill.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/kill.md",
+    "path": "docs/reference/commandline/kill.md"
+  },
+  {
+    "name": "load.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/load.md",
+    "path": "docs/reference/commandline/load.md"
+  },
+  {
+    "name": "login.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/login.md",
+    "path": "docs/reference/commandline/login.md"
+  },
+  {
+    "name": "logout.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/logout.md",
+    "path": "docs/reference/commandline/logout.md"
+  },
+  {
+    "name": "logs.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/logs.md",
+    "path": "docs/reference/commandline/logs.md"
+  },
+  {
+    "name": "manifest.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest.md",
+    "path": "docs/reference/commandline/manifest.md"
+  },
+  {
+    "name": "manifest_annotate.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest_annotate.md",
+    "path": "docs/reference/commandline/manifest_annotate.md"
+  },
+  {
+    "name": "manifest_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest_create.md",
+    "path": "docs/reference/commandline/manifest_create.md"
+  },
+  {
+    "name": "manifest_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest_inspect.md",
+    "path": "docs/reference/commandline/manifest_inspect.md"
+  },
+  {
+    "name": "manifest_push.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest_push.md",
+    "path": "docs/reference/commandline/manifest_push.md"
+  },
+  {
+    "name": "manifest_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/manifest_rm.md",
+    "path": "docs/reference/commandline/manifest_rm.md"
+  },
+  {
+    "name": "network.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network.md",
+    "path": "docs/reference/commandline/network.md"
+  },
+  {
+    "name": "network_connect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_connect.md",
+    "path": "docs/reference/commandline/network_connect.md"
+  },
+  {
+    "name": "network_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_create.md",
+    "path": "docs/reference/commandline/network_create.md"
+  },
+  {
+    "name": "network_disconnect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_disconnect.md",
+    "path": "docs/reference/commandline/network_disconnect.md"
+  },
+  {
+    "name": "network_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_inspect.md",
+    "path": "docs/reference/commandline/network_inspect.md"
+  },
+  {
+    "name": "network_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_ls.md",
+    "path": "docs/reference/commandline/network_ls.md"
+  },
+  {
+    "name": "network_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_prune.md",
+    "path": "docs/reference/commandline/network_prune.md"
+  },
+  {
+    "name": "network_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/network_rm.md",
+    "path": "docs/reference/commandline/network_rm.md"
+  },
+  {
+    "name": "node.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node.md",
+    "path": "docs/reference/commandline/node.md"
+  },
+  {
+    "name": "node_demote.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_demote.md",
+    "path": "docs/reference/commandline/node_demote.md"
+  },
+  {
+    "name": "node_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_inspect.md",
+    "path": "docs/reference/commandline/node_inspect.md"
+  },
+  {
+    "name": "node_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_ls.md",
+    "path": "docs/reference/commandline/node_ls.md"
+  },
+  {
+    "name": "node_promote.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_promote.md",
+    "path": "docs/reference/commandline/node_promote.md"
+  },
+  {
+    "name": "node_ps.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_ps.md",
+    "path": "docs/reference/commandline/node_ps.md"
+  },
+  {
+    "name": "node_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_rm.md",
+    "path": "docs/reference/commandline/node_rm.md"
+  },
+  {
+    "name": "node_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/node_update.md",
+    "path": "docs/reference/commandline/node_update.md"
+  },
+  {
+    "name": "pause.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/pause.md",
+    "path": "docs/reference/commandline/pause.md"
+  },
+  {
+    "name": "plugin.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin.md",
+    "path": "docs/reference/commandline/plugin.md"
+  },
+  {
+    "name": "plugin_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_create.md",
+    "path": "docs/reference/commandline/plugin_create.md"
+  },
+  {
+    "name": "plugin_disable.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_disable.md",
+    "path": "docs/reference/commandline/plugin_disable.md"
+  },
+  {
+    "name": "plugin_enable.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_enable.md",
+    "path": "docs/reference/commandline/plugin_enable.md"
+  },
+  {
+    "name": "plugin_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_inspect.md",
+    "path": "docs/reference/commandline/plugin_inspect.md"
+  },
+  {
+    "name": "plugin_install.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_install.md",
+    "path": "docs/reference/commandline/plugin_install.md"
+  },
+  {
+    "name": "plugin_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_ls.md",
+    "path": "docs/reference/commandline/plugin_ls.md"
+  },
+  {
+    "name": "plugin_push.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_push.md",
+    "path": "docs/reference/commandline/plugin_push.md"
+  },
+  {
+    "name": "plugin_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_rm.md",
+    "path": "docs/reference/commandline/plugin_rm.md"
+  },
+  {
+    "name": "plugin_set.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_set.md",
+    "path": "docs/reference/commandline/plugin_set.md"
+  },
+  {
+    "name": "plugin_upgrade.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/plugin_upgrade.md",
+    "path": "docs/reference/commandline/plugin_upgrade.md"
+  },
+  {
+    "name": "port.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/port.md",
+    "path": "docs/reference/commandline/port.md"
+  },
+  {
+    "name": "ps.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/ps.md",
+    "path": "docs/reference/commandline/ps.md"
+  },
+  {
+    "name": "pull.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/pull.md",
+    "path": "docs/reference/commandline/pull.md"
+  },
+  {
+    "name": "push.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/push.md",
+    "path": "docs/reference/commandline/push.md"
+  },
+  {
+    "name": "rename.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/rename.md",
+    "path": "docs/reference/commandline/rename.md"
+  },
+  {
+    "name": "restart.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/restart.md",
+    "path": "docs/reference/commandline/restart.md"
+  },
+  {
+    "name": "rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/rm.md",
+    "path": "docs/reference/commandline/rm.md"
+  },
+  {
+    "name": "rmi.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/rmi.md",
+    "path": "docs/reference/commandline/rmi.md"
+  },
+  {
+    "name": "run.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/run.md",
+    "path": "docs/reference/commandline/run.md"
+  },
+  {
+    "name": "save.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/save.md",
+    "path": "docs/reference/commandline/save.md"
+  },
+  {
+    "name": "search.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/search.md",
+    "path": "docs/reference/commandline/search.md"
+  },
+  {
+    "name": "secret.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/secret.md",
+    "path": "docs/reference/commandline/secret.md"
+  },
+  {
+    "name": "secret_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/secret_create.md",
+    "path": "docs/reference/commandline/secret_create.md"
+  },
+  {
+    "name": "secret_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/secret_inspect.md",
+    "path": "docs/reference/commandline/secret_inspect.md"
+  },
+  {
+    "name": "secret_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/secret_ls.md",
+    "path": "docs/reference/commandline/secret_ls.md"
+  },
+  {
+    "name": "secret_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/secret_rm.md",
+    "path": "docs/reference/commandline/secret_rm.md"
+  },
+  {
+    "name": "service.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service.md",
+    "path": "docs/reference/commandline/service.md"
+  },
+  {
+    "name": "service_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_create.md",
+    "path": "docs/reference/commandline/service_create.md"
+  },
+  {
+    "name": "service_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_inspect.md",
+    "path": "docs/reference/commandline/service_inspect.md"
+  },
+  {
+    "name": "service_logs.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_logs.md",
+    "path": "docs/reference/commandline/service_logs.md"
+  },
+  {
+    "name": "service_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_ls.md",
+    "path": "docs/reference/commandline/service_ls.md"
+  },
+  {
+    "name": "service_ps.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_ps.md",
+    "path": "docs/reference/commandline/service_ps.md"
+  },
+  {
+    "name": "service_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_rm.md",
+    "path": "docs/reference/commandline/service_rm.md"
+  },
+  {
+    "name": "service_rollback.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_rollback.md",
+    "path": "docs/reference/commandline/service_rollback.md"
+  },
+  {
+    "name": "service_scale.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_scale.md",
+    "path": "docs/reference/commandline/service_scale.md"
+  },
+  {
+    "name": "service_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/service_update.md",
+    "path": "docs/reference/commandline/service_update.md"
+  },
+  {
+    "name": "stack.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack.md",
+    "path": "docs/reference/commandline/stack.md"
+  },
+  {
+    "name": "stack_config.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_config.md",
+    "path": "docs/reference/commandline/stack_config.md"
+  },
+  {
+    "name": "stack_deploy.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_deploy.md",
+    "path": "docs/reference/commandline/stack_deploy.md"
+  },
+  {
+    "name": "stack_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_ls.md",
+    "path": "docs/reference/commandline/stack_ls.md"
+  },
+  {
+    "name": "stack_ps.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_ps.md",
+    "path": "docs/reference/commandline/stack_ps.md"
+  },
+  {
+    "name": "stack_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_rm.md",
+    "path": "docs/reference/commandline/stack_rm.md"
+  },
+  {
+    "name": "stack_services.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stack_services.md",
+    "path": "docs/reference/commandline/stack_services.md"
+  },
+  {
+    "name": "start.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/start.md",
+    "path": "docs/reference/commandline/start.md"
+  },
+  {
+    "name": "stats.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stats.md",
+    "path": "docs/reference/commandline/stats.md"
+  },
+  {
+    "name": "stop.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/stop.md",
+    "path": "docs/reference/commandline/stop.md"
+  },
+  {
+    "name": "swarm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm.md",
+    "path": "docs/reference/commandline/swarm.md"
+  },
+  {
+    "name": "swarm_ca.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_ca.md",
+    "path": "docs/reference/commandline/swarm_ca.md"
+  },
+  {
+    "name": "swarm_init.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_init.md",
+    "path": "docs/reference/commandline/swarm_init.md"
+  },
+  {
+    "name": "swarm_join-token.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_join-token.md",
+    "path": "docs/reference/commandline/swarm_join-token.md"
+  },
+  {
+    "name": "swarm_join.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_join.md",
+    "path": "docs/reference/commandline/swarm_join.md"
+  },
+  {
+    "name": "swarm_leave.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_leave.md",
+    "path": "docs/reference/commandline/swarm_leave.md"
+  },
+  {
+    "name": "swarm_unlock-key.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_unlock-key.md",
+    "path": "docs/reference/commandline/swarm_unlock-key.md"
+  },
+  {
+    "name": "swarm_unlock.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_unlock.md",
+    "path": "docs/reference/commandline/swarm_unlock.md"
+  },
+  {
+    "name": "swarm_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/swarm_update.md",
+    "path": "docs/reference/commandline/swarm_update.md"
+  },
+  {
+    "name": "system.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system.md",
+    "path": "docs/reference/commandline/system.md"
+  },
+  {
+    "name": "system_df.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system_df.md",
+    "path": "docs/reference/commandline/system_df.md"
+  },
+  {
+    "name": "system_dial-stdio.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system_dial-stdio.md",
+    "path": "docs/reference/commandline/system_dial-stdio.md"
+  },
+  {
+    "name": "system_events.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system_events.md",
+    "path": "docs/reference/commandline/system_events.md"
+  },
+  {
+    "name": "system_info.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system_info.md",
+    "path": "docs/reference/commandline/system_info.md"
+  },
+  {
+    "name": "system_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/system_prune.md",
+    "path": "docs/reference/commandline/system_prune.md"
+  },
+  {
+    "name": "tag.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/tag.md",
+    "path": "docs/reference/commandline/tag.md"
+  },
+  {
+    "name": "top.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/top.md",
+    "path": "docs/reference/commandline/top.md"
+  },
+  {
+    "name": "unpause.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/unpause.md",
+    "path": "docs/reference/commandline/unpause.md"
+  },
+  {
+    "name": "update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/update.md",
+    "path": "docs/reference/commandline/update.md"
+  },
+  {
+    "name": "version.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/version.md",
+    "path": "docs/reference/commandline/version.md"
+  },
+  {
+    "name": "volume.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume.md",
+    "path": "docs/reference/commandline/volume.md"
+  },
+  {
+    "name": "volume_create.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_create.md",
+    "path": "docs/reference/commandline/volume_create.md"
+  },
+  {
+    "name": "volume_inspect.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_inspect.md",
+    "path": "docs/reference/commandline/volume_inspect.md"
+  },
+  {
+    "name": "volume_ls.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_ls.md",
+    "path": "docs/reference/commandline/volume_ls.md"
+  },
+  {
+    "name": "volume_prune.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_prune.md",
+    "path": "docs/reference/commandline/volume_prune.md"
+  },
+  {
+    "name": "volume_rm.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_rm.md",
+    "path": "docs/reference/commandline/volume_rm.md"
+  },
+  {
+    "name": "volume_update.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/volume_update.md",
+    "path": "docs/reference/commandline/volume_update.md"
+  },
+  {
+    "name": "wait.md",
+    "download_url": "https://raw.githubusercontent.com/docker/cli/master/docs/reference/commandline/wait.md",
+    "path": "docs/reference/commandline/wait.md"
+  }
+]
