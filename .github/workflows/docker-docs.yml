@@ -1,4 +1,4 @@
-name: Docker CLI importer (3x daily)
+name: Docker CLI importer (3x daily, no readme edits)
 
 permissions:
   contents: write
@@ -87,66 +87,11 @@ jobs:
           awk 'NR==1 && /^# / {next} {print}' "$tmpfile" >> "$outpath"
           rm -f "$tmpfile"
 
-          # 4) README.md (создать, если нет)
-          if [ ! -f README.md ]; then
-            cat > README.md <<'EOF'
-# Docker CLI Notes
-
-Автопубликация 3 раза в день из официальных Docker CLI docs (раздел `commandline`).
-Источники и лицензия: см. нижний раздел README.
-
-<!-- AUTO-INDEX:BEGIN -->
-<!-- AUTO-INDEX:END -->
-
-## Attribution & License
-- Source: Docker CLI repository (docs/reference/commandline)
-- License: Apache-2.0 (Docker CLI repo). Content includes links back to originals.
-EOF
-          fi
-
-          # 5) Перестроим автоиндекс
-          mapfile -t files < <(git ls-files 'articles/*.md' 2>/dev/null | sort -r)
-          index_tmp="$(mktemp)"
-          {
-            echo "<!-- AUTO-INDEX:BEGIN -->"
-            echo
-            echo "## Docker CLI — импортированные статьи"
-            echo
-            echo "| Дата | Файл |"
-            echo "|---|---|"
-            for f in "${files[@]}"; do
-              bn="$(basename "$f")"
-              dt="${bn%%-*}"
-              echo "| ${dt} | [${bn}](${f}) |"
-            done
-            echo
-            echo "<!-- AUTO-INDEX:END -->"
-          } > "$index_tmp"
-
-          # заменить секцию между маркерами
-          awk -v RS= -v ORS= -v newsec="$(cat "$index_tmp")" '
-            BEGIN{ has=0 }
-            {
-              if ($0 ~ /<!-- AUTO-INDEX:BEGIN -->/ && $0 ~ /<!-- AUTO-INDEX:END -->/) {
-                sub(/<!-- AUTO-INDEX:BEGIN -->.*<!-- AUTO-INDEX:END -->/, newsec)
-                has=1
-              }
-              printf "%s", $0
-            }
-            END{
-              if (has==0) {
-                printf "\n%s\n", newsec
-              }
-            }
-          ' README.md > README.md.new
-          mv README.md.new README.md
-          rm -f "$index_tmp"
-
-          # 6) Коммит от вашего имени
+          # 4) Коммит от вашего имени
           git config user.name  "${GIT_COMMITTER_NAME}"
           git config user.email "${GIT_COMMITTER_EMAIL}"
 
-          git add "$outpath" README.md .state
+          git add "$outpath" .state
           echo $((idx+1)) > .state/idx
           git add .state/idx
 
@@ -154,7 +99,7 @@ EOF
           GIT_AUTHOR_EMAIL="${GIT_AUTHOR_EMAIL}" \
           GIT_COMMITTER_NAME="${GIT_COMMITTER_NAME}" \
           GIT_COMMITTER_EMAIL="${GIT_COMMITTER_EMAIL}" \
-          git commit -m "Add: ${title} (${today}); update index" || echo "Nothing to commit"
+          git commit -m "Add: ${title} (${today})" || echo "Nothing to commit"
 
       - name: Push to main (counts in activity graph)
         run: git push origin HEAD:main
@@ -173,4 +118,4 @@ EOF
           body: |
             <p>Опубликована новая статья из Docker CLI docs.</p>
             <p>Repo: <a href="https://github.com/${{ github.repository }}">ссылка</a></p>
-            <p>См. авто-индекс в README.</p>
+            <p>Файл сохранён в папке <code>articles/</code>.</p>
