@@ -105,8 +105,8 @@ jobs:
             cat > README.md <<'EOF'
 # Docker CLI Notes
 
-Автопубликация 3 раза в день из официальных Docker CLI docs (раздел `commandline`).
-Источники и лицензия: см. нижний раздел README.
+#Автопубликация 3 раза в день из официальных Docker CLI docs (раздел `commandline`).
+#Источники и лицензия: см. нижний раздел README.
 
 <!-- AUTO-INDEX:BEGIN -->
 <!-- AUTO-INDEX:END -->
