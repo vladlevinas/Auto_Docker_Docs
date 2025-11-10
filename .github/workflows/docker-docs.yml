@@ -25,8 +25,8 @@ jobs:
           persist-credentials: true
           fetch-depth: 0
 
-      - name: Install tools
-        run: sudo apt-get update && sudo apt-get install -y jq perl
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Fetch & publish next Docker CLI article
         env:
@@ -35,7 +35,7 @@ jobs:
           set -euo pipefail
           mkdir -p .state articles
 
-          # 1) Получить список файлов один раз и кэшировать
+          # 1) Получить список файлов (кэшируется)
           if [ ! -f .state/files.json ]; then
             curl -sSL \
               -H "Accept: application/vnd.github+json" \
@@ -50,10 +50,13 @@ jobs:
             jq 'sort_by(.name)' .state/files.json > .state/ordered.json
           fi
 
-          # 3) Выбор следующего файла (циклично)
+          # 3) Выбор следующего файла
           idx=$( [ -f .state/idx ] && cat .state/idx || echo 0 )
           total=$(jq 'length' .state/ordered.json)
-          [ "$total" -gt 0 ] || { echo "No files to process"; exit 1; }
+          if [ "$total" -le 0 ]; then
+            echo "No files to process"
+            exit 1
+          fi
           sel=$(( idx % total ))
 
           name=$(jq -r ".[$sel].name" .state/ordered.json)
@@ -82,7 +85,24 @@ jobs:
           awk 'NR==1 && /^# / {next} {print}' "$tmpfile" >> "$outpath"
           rm -f "$tmpfile"
 
-          # 4) Перестроить авто-индекс в README.md
+          # 4) Гарантируем наличие README с маркерами
+          if [ ! -f README.md ]; then
+            cat > README.md <<'EOF'
+# Docker CLI Notes
+
+Автопубликация 3 раза в день из официальных Docker CLI docs (раздел `commandline`).
+Источники и лицензия: см. нижний раздел README.
+
+<!-- AUTO-INDEX:BEGIN -->
+<!-- AUTO-INDEX:END -->
+
+## Attribution & License
+- Source: Docker CLI repository (docs/reference/commandline)
+- License: Apache-2.0 (Docker CLI repo). Content includes links back to originals.
+EOF
+          fi
+
+          # 5) Построить новую секцию индекса
           mapfile -t files < <(git ls-files 'articles/*.md' 2>/dev/null | sort -r)
           index_tmp="$(mktemp)"
           {
@@ -101,35 +121,27 @@ jobs:
             echo "<!-- AUTO-INDEX:END -->"
           } > "$index_tmp"
 
-          if [ ! -f README.md ]; then
-            cat > README.md <<'EOF'
-# Docker CLI Notes
-
-#Автопубликация 3 раза в день из официальных Docker CLI docs (раздел `commandline`).
-#Источники и лицензия: см. нижний раздел README.
-
-<!-- AUTO-INDEX:BEGIN -->
-<!-- AUTO-INDEX:END -->
-
-## Attribution & License
-- Source: Docker CLI repository (docs/reference/commandline)
-- License: Apache-2.0 (Docker CLI repo). Content includes links back to originals.
-EOF
-          fi
-
-          perl -0777 -pe '
-            BEGIN {
-              local $/;
-              open my $fh, q{<}, $ENV{INDEX_FILE} or die $!;
-              $new = <$fh>;
-              close $fh;
+          # 6) Заменить секцию между маркерами через awk (без perl)
+          awk -v RS= -v ORS= -v newsec="$(cat "$index_tmp")" '
+            BEGIN{ has=0 }
+            {
+              if ($0 ~ /<!-- AUTO-INDEX:BEGIN -->/ && $0 ~ /<!-- AUTO-INDEX:END -->/) {
+                sub(/<!-- AUTO-INDEX:BEGIN -->.*<!-- AUTO-INDEX:END -->/, newsec)
+                has=1
+              }
+              printf "%s", $0
             }
-            s/<!-- AUTO-INDEX:BEGIN -->.*?<!-- AUTO-INDEX:END -->/$new/s
-          ' -- - $INDEX_FILE="$index_tmp" README.md > README.md.new
+            END{
+              if (has==0) {
+                # если почему-то нет маркеров — просто добавить в конец
+                printf "\n%s\n", newsec
+              }
+            }
+          ' README.md > README.md.new
           mv README.md.new README.md
           rm -f "$index_tmp"
 
-          # 5) Коммит от вашего имени (считаться в активность)
+          # 7) Коммит от вашего имени
           git config user.name  "${GIT_COMMITTER_NAME}"
           git config user.email "${GIT_COMMITTER_EMAIL}"
 
